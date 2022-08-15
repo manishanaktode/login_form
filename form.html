@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <body>
+        <form action="">
+           user name :<input type="text" id="name" ><br><br>
+            
+            email :<input type="email" id="email"><br><br>
+            password :<input type="password" id="password"><br><br><br>
+
+            <button type="button" id="btn">submit</button>
+
+        </form>
+        <script>
+const name=document.getElementById("name");
+const email=document.getElementById("email");
+const password=document.getElementById("password");
+const btn= document.getElementById("btn");
+
+btn.addEventListener("click",function(){
+    var data={Email:email.value,Password:password.value,Name:name.value};
+    console.log(data);
+
+    fetch('http://localhost:5000/loginjson',{
+        method:'POST',
+        headers:{
+            'Accept': 'application/json, text/plain, */*',
+            'content-Type': 'application/json'
+        },
+        body:JSON.stringify(data)
+        }).then(res.json()).then(res=> console.log(res));
+    
+    })
+
+
+        </script>
+    </body>
+</html>
